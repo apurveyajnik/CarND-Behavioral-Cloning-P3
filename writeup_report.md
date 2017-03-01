@@ -17,7 +17,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
+[image1]: ./examples/model.png "Model Visualization"
 [image2]: ./examples/center.jpg "Center Image"
 [image3]: ./examples/recovery1jpg "Recovery Image"
 [image4]: ./examples/recovery2.jpg "Recovery Image"
@@ -93,7 +93,27 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 ####2. Final Model Architecture
 
-The final model architecture (model.py lines 69-91) consisted of a convolution neural network with the following layers and layer sizes 
+The final model architecture (model.py lines 69-91) consisted of a convolution neural network with the following layers and layer sizes
+5x5 Convolution
+2x2 Subsampling
+Relu Activation
+5x5 Convolution
+2x2 Subsampling
+Relu Activation
+Droput
+5x5 Convolution
+2x2 Subsampling
+Relu Activation
+3x3 Convolution
+Relu Activation
+3x3 Convolution
+Relu Activation
+100 Fully connected
+Relu Activation
+Dropout
+50 Fully connected
+Relu Activation
+1 Fully connected
 
 Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
 
@@ -105,7 +125,7 @@ To capture good driving behavior, I first recorded two laps on track one using c
 
 ![alt text][image2]
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to recover from the side of the road. These images show what a recovery looks like starting from ... :
+I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to recover from the side of the road. These images show what a recovery looks like starting from the side of the road to the center. :
 
 ![alt text][image3]
 ![alt text][image4]
@@ -118,9 +138,8 @@ To augment the data sat, I also flipped images and angles thinking that this wou
 ![alt text][image6]
 ![alt text][image7]
 
-Etc ....
 
-After the collection process, I had X number of data points. I then preprocessed this data by normalizing it using lambda layer and then cropping it.
+After the collection process, I had 21204 number of data points. I then preprocessed this data by normalizing it using lambda layer and then cropping it.
 
 
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
